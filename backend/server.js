@@ -15,7 +15,15 @@ connectCloudinary()
 
 //middlewares
 app.use(express.json())
-app.use(cors())
+// app.use(cors())
+
+app.use(cors({
+  origin: [
+    "https://therapy-activator-new.vercel.app/",
+    "https://therapy-activator-new-c9ll-jet.vercel.app/"
+  ],
+  credentials: true
+}));
 
 //api endpoints
 app.use('/api/admin',adminRouter)
